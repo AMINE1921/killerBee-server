@@ -77,7 +77,7 @@ const deleteUser = async (req: Request, res: Response) => {
   const id = req.params.userId;
   const token = req.cookies.access_token;
 
-  if (id == req.userId || req.userRoles?.includes("techService")) {
+  if (id == req.userId || req.userRoles?.includes("admin")) {
     try {
       await deleteUserById(id);
 
