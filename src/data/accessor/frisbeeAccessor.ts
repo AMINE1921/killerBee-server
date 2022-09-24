@@ -3,16 +3,16 @@ import FrisbeeInterface from "../../interfaces/frisbeeInterface";
 import logger from "../../utils/logger";
 
 const createFrisbee = async (frisbee: FrisbeeInterface) => {
-  const newProduct = new Frisbee({
+  const newFrisbee = new Frisbee({
     name: frisbee?.name,
     description: frisbee?.description,
     price: frisbee?.price,
     range: frisbee?.range,
-    ingredients: frisbee?.ingredients,
+    ingredients: frisbee?.ingredients
   });
 
   try {
-    await newProduct.save();
+    await newFrisbee.save();
   } catch (err) {
     logger.error(`Error in createFrisbee: \n${err}`);
     throw err;

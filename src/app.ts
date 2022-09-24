@@ -8,6 +8,7 @@ import authentificationRoutes from "./routes/authentificationRoute";
 import userRoutes from "./routes/userRoute";
 import ingredientRoutes from "./routes/ingredientRoute";
 import frisbeeRoutes from "./routes/frisbeeRoute";
+import processRoutes from "./routes/processRoute";
 
 const app: Express = express();
 
@@ -34,5 +35,6 @@ app.use("/api", authentificationRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/frisbees", frisbeeRoutes);
 app.use("/api/ingredients", ingredientRoutes);
+app.use("/api/processes", processRoutes);
 
 export default app;

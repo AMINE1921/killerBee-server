@@ -11,10 +11,6 @@ const processSchema = new mongoose.Schema({
     ref: "Frisbee",
     required: true,
   },
-  step: {
-    type: Number,
-    required: true,
-  },
   steps: [
     {
       nbStep: { type: Number, required: true },
