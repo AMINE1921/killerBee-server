@@ -5,7 +5,7 @@ import logger from "../../utils/logger";
 const createIngredient = async (ingredient: IngredientInterface) => {
   const newProduct = new Ingredient({
     name: ingredient?.name,
-    description: ingredient?.description
+    description: ingredient?.description,
   });
 
   try {
@@ -17,21 +17,21 @@ const createIngredient = async (ingredient: IngredientInterface) => {
 };
 
 const getAllIngredients = async () =>
-  await Ingredient.findOne({ }).catch((err: any) => {
-  console.log(`Error in getAllIngredients:\n${err}`);
-});
+  await Ingredient.find({}).catch((err: any) => {
+    console.log(`Error in getAllIngredients:\n${err}`);
+  });
 
 const getIngredientById = async (ingredientId: string) =>
   await Ingredient.findOne({ _id: ingredientId }).catch((err: any) => {
-  console.log(`Error in getIngredientById: ${ingredientId}:\n${err}`);
-});
+    console.log(`Error in getIngredientById: ${ingredientId}:\n${err}`);
+  });
 
 const editIngredientById = async (ingredient: IngredientInterface) =>
   await Ingredient.findOneAndUpdate(
     { _id: ingredient.ingredientId },
     {
       name: ingredient?.name,
-      description: ingredient?.description
+      description: ingredient?.description,
     },
     { new: true }
   );
@@ -39,4 +39,10 @@ const editIngredientById = async (ingredient: IngredientInterface) =>
 const deleteIngredientById = async (ingredientId: string) =>
   await Ingredient.findOneAndRemove({ _id: ingredientId });
 
-export { createIngredient, getAllIngredients, getIngredientById, editIngredientById, deleteIngredientById };
+export {
+  createIngredient,
+  getAllIngredients,
+  getIngredientById,
+  editIngredientById,
+  deleteIngredientById,
+};
