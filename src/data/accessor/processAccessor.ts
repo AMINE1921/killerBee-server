@@ -38,7 +38,7 @@ const getAllProcess = async () =>
     });
 
 const getProcessById = async (processId: string) =>
-  await Process.find({ _id: processId })
+  await Process.findOne({ _id: processId })
     .populate("model")
     .catch((err: any) => {
       logger.error(`Error in getMenusByRestaurantId: ${processId}:\n${err}`);

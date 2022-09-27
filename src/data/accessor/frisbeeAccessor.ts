@@ -8,7 +8,7 @@ const createFrisbee = async (frisbee: FrisbeeInterface) => {
     description: frisbee?.description,
     price: frisbee?.price,
     range: frisbee?.range,
-    ingredients: frisbee?.ingredients
+    ingredients: frisbee?.ingredients,
   });
 
   try {
@@ -40,7 +40,7 @@ const getAllFrisbee = async () =>
     });
 
 const getFrisbeeById = async (frisbeeId: string) =>
-  await Frisbee.find({ _id: frisbeeId })
+  await Frisbee.findOne({ _id: frisbeeId })
     .populate("ingredients.ingredientId")
     .catch((err: any) => {
       logger.error(`Error in getMenusByRestaurantId: ${frisbeeId}:\n${err}`);
@@ -49,4 +49,10 @@ const getFrisbeeById = async (frisbeeId: string) =>
 const deleteFrisbeeById = async (frisbeeId: string) =>
   await Frisbee.findOneAndRemove({ _id: frisbeeId });
 
-export { createFrisbee, getAllFrisbee, getFrisbeeById, editFrisbeeById, deleteFrisbeeById };
+export {
+  createFrisbee,
+  getAllFrisbee,
+  getFrisbeeById,
+  editFrisbeeById,
+  deleteFrisbeeById,
+};
