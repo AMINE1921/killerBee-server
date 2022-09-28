@@ -24,7 +24,7 @@ app.use(multerMid.single("picture"));
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://localhost:3000",
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })
